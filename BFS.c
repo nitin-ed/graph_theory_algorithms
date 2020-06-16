@@ -1,6 +1,7 @@
 //Library Definitions
 
 #include<stdio.h>
+#include<conio.h>
 #include<stddef.h>
 #include<stdlib.h>
 
@@ -44,11 +45,17 @@ void BFS(Graph* graph ,int start);
 qode* front;
 qode* rear;
 
-//Main Function
+//MAIN Function
 
 void main()
 {
-    display_graph(create_adjlist());
+    Graph *graph;
+    int start;
+    graph = create_adjlist();
+    display_graph(graph);
+    printf("Enter Starting Vertex for BFS : ");
+    scanf("%d" , &start);
+    BFS(graph,start);
 }
 
 //Functions Defintions count = 10
@@ -91,9 +98,10 @@ qode* create_qode(int data)
 void enqueue(int data)
 {
     qode *new,*temp;
+    new = create_qode(data);
     if (front == NULL)
     {
-        front = create_qode(data);
+        front = new;
         rear = front;
     }
     else
@@ -169,12 +177,12 @@ void display_graph(Graph *graph)
         printf("%d : " , i + 1);
         while (temp)
         {
+            
             printf("-> %d " , temp->data + 1);
             temp = temp->next;
         }
         printf("\n");
     }
-    
 }
 
 void display_queue()
@@ -191,6 +199,28 @@ void display_queue()
 
 void BFS(Graph* graph ,int start)
 {
-    
+    start--;
+    graph->visited[start] = 1;
+    enqueue(start);
+
+    while( !isEmpty())
+    {
+        display_queue();
+        int current = dequeue();
+        printf("\nVisited : %d", current + 1);
+        node *temp = graph->adjlist[current];
+
+        while(temp)
+        {
+            int vertex = temp->data;
+            if (graph->visited[vertex] == 0)
+            {
+                graph->visited[vertex] = 1;
+                enqueue(vertex);
+            }
+            temp = temp->next;
+        }
+    }
 }
+
 
