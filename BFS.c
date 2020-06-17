@@ -58,7 +58,7 @@ void main()
     BFS(graph,start);
 }
 
-//Functions Defintions count = 10
+//Functions Defintions Count = 11
 
 Graph* create_graph(int v)
 {
@@ -222,5 +222,3 @@ void BFS(Graph* graph ,int start)
         }
     }
 }
-
-
