@@ -1,2 +1,2 @@
-## Implementation of Graph Theory Algorithms I learned during gradutation
+## Implementation of Graph Theory Algorithms I learned during graduation
 
