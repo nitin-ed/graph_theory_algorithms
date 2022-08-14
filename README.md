@@ -1,2 +1,2 @@
-# Graph_Theory_Algorithms
+## Implementation of Graph Theory Algorithms I learning during gradutation
 
